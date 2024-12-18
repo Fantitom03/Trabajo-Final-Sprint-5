@@ -1,0 +1,53 @@
+<div class="container mx-auto px-4 py-6">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-2xl font-bold text-white mb-4">Lista de Países</h2>
+      <a href="/paises/agregar" class="bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-700">
+        Agregar Nuevo País
+      </a>
+    </div>
+  
+    <% if (paises && paises.length > 0) { %>
+      <table class="min-w-full bg-gray-800 border border-gray-700 rounded-lg shadow-lg">
+        <thead class="bg-gray-900">
+          <tr>
+            <th class="py-2 px-4 border-b border-gray-700 text-left text-sm font-semibold text-white">Nombre</th>
+            <th class="py-2 px-4 border-b border-gray-700 text-left text-sm font-semibold text-white">Capital</th>
+            <th class="py-2 px-4 border-b border-gray-700 text-left text-sm font-semibold text-white">Población</th>
+            <th class="py-2 px-4 border-b border-gray-700 text-left text-sm font-semibold text-white">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% paises.forEach(pais => { %>
+            <tr class="hover:bg-gray-700">
+              <td class="py-2 px-4 border-b border-gray-700 text-gray-300">
+              <a href="/paises/detalle/<%= pais._id %>" class="text-blue-400 hover:text-blue-600"><%= pais.name.nativeName.spa.official %></a>
+              </td>
+              <td class="py-2 px-4 border-b border-gray-700 text-gray-300"><%= pais.capital[0] %></td>
+              <td class="py-2 px-4 border-b border-gray-700 text-gray-300"><%= pais.population %></td>
+              <td class="py-2 px-4 border-b border-gray-700">
+                <!-- Botón de Editar -->
+                <a href="/paises/editar/<%= pais._id %>" class="bg-green-500 text-white px-3 py-1 rounded shadow hover:bg-green-700">
+                  Editar
+                </a>
+  
+                <!-- Botón de Eliminar -->
+                <form 
+                  action="/paises/<%= pais._id %>?_method=DELETE" 
+                  method="POST" 
+                  class="inline-block" 
+                  onsubmit="return confirm('¿Estás seguro de eliminar este país?');">
+  
+                  <button type="submit" class="bg-red-500 text-white px-3 py-1 rounded shadow hover:bg-red-700">
+                    Eliminar
+                  </button>
+  
+                </form>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <p class="text-gray-300 mt-4">No hay países en la base de datos.</p>
+    <% } %>
+  </div>

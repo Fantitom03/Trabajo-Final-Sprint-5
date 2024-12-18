@@ -1,0 +1,2 @@
+node populateDatabase.mjs //Crear base de datos
+node resetDatabase.mjs  //Borrar base de datos

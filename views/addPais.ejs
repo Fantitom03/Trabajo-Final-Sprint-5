@@ -1,0 +1,62 @@
+<div class="container mx-auto px-4 py-6">
+    <a href="/paises" class="bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-700 mb-4 inline-block">Volver al Dashboard</a>
+    <form action="/paises/agregar" method="POST" class="bg-gray-800 p-6 rounded shadow-md">
+        <h2 class="block text-white font-bold mb-2">Formulario de País</h2>
+            
+        <!-- Nombre Oficial -->
+        <div class="mb-4">
+            <label for="name_official" class="block text-sm font-medium text-white">Nombre oficial en español:</label>
+            <input type="text" id="name_official" name="name_official" required 
+                   placeholder="Ej. República Argentina" 
+                   class="w-full px-4 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <!-- Capital -->
+        <div class="mb-4">
+            <label for="capital" class="block text-sm font-medium text-white">Capital (separar con comas):</label>
+            <input type="text" id="capital" name="capital" required 
+                   placeholder="Ej. Buenos Aires" 
+                   class="w-full px-4 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <!-- Fronteras -->
+        <div class="mb-4">
+            <label for="borders" class="block text-sm font-medium text-white">Fronteras:</label>
+            <input type="text" id="borders" name="borders" 
+                   placeholder="Ej. CHL, URY, BRA" 
+                   class="w-full px-4 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <!-- Área -->
+        <div class="mb-4">
+            <label for="area" class="block text-sm font-medium text-white">Área (en km²):</label>
+            <input type="number" id="area" name="area" step="0.01" required 
+                placeholder="Ej. 2780400" 
+                class="w-full px-4 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <!-- Población -->
+        <div class="mb-4">
+            <label for="population" class="block text-sm font-medium text-white">Población:</label>
+            <input type="number" id="population" name="population" required 
+                   placeholder="Ej. 45000000" 
+                   class="w-full px-4 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <!-- Zonas Horarias -->
+        <div class="mb-4">
+            <label for="timezones" class="block text-sm font-medium text-white">Zonas Horarias:</label>
+            <input type="text" id="timezones" name="timezones" required 
+                   placeholder="Ej. UTC-3, UTC-4" 
+                   class="w-full px-4 py-2 rounded bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <!-- Enviar -->
+        <div class="flex justify-center mt-6">
+            <button type="submit" 
+                class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+                Agregar País
+            </button>
+        </div>
+    </form>
+</div>

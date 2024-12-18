@@ -1,0 +1,34 @@
+<div class="container mx-auto px-4 py-6">
+  <a href="/paises" class="bg-blue-500 text-white px-4 py-2 rounded shadow hover:bg-blue-700 mb-4 inline-block">Volver al Dashboard</a>
+  <h1 class="text-3xl font-bold text-white mb-6">Editar País: <%= pais.name.nativeName.spa.official %></h1>
+  
+  <form action="/paises/editar/<%= pais._id %>" method="POST" class="bg-gray-800 p-6 rounded-lg shadow-lg">
+    <div class="mb-4">
+      <label for="name_official" class="block text-sm font-semibold text-white">Nombre Oficial</label>
+      <input type="text" id="name_official" name="name_official" value="<%= pais.name.nativeName.spa.official %>" class="w-full mt-2 p-2 rounded bg-gray-700 text-white">
+    </div>
+    <div class="mb-4">
+      <label for="capital" class="block text-sm font-semibold text-white">Capital</label>
+      <input type="text" id="capital" name="capital" value="<%= pais.capital.join(', ') %>" class="w-full mt-2 p-2 rounded bg-gray-700 text-white">
+    </div>
+    <div class="mb-4">
+      <label for="borders" class="block text-sm font-semibold text-white">Fronteras</label>
+      <input type="text" id="borders" name="borders" value="<%= pais.borders.join(', ') %>" class="w-full mt-2 p-2 rounded bg-gray-700 text-white">
+    </div>
+    <div class="mb-4">
+      <label for="area" class="block text-sm font-semibold text-white">Área (km²)</label>
+      <input type="number" id="area" name="area" value="<%= pais.area %>" class="w-full mt-2 p-2 rounded bg-gray-700 text-white">
+    </div>
+    <div class="mb-4">
+      <label for="population" class="block text-sm font-semibold text-white">Población</label>
+      <input type="number" id="population" name="population" value="<%= pais.population %>" class="w-full mt-2 p-2 rounded bg-gray-700 text-white">
+    </div>
+    <div class="mb-4">
+      <label for="timezones" class="block text-sm font-semibold text-white">Zonas Horarias</label>
+      <input type="text" id="timezones" name="timezones" value="<%= pais.timezones.join(', ') %>" class="w-full mt-2 p-2 rounded bg-gray-700 text-white">
+    </div>
+    <div class="flex justify-end">
+      <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded shadow hover:bg-green-700">Guardar Cambios</button>
+    </div>
+  </form>
+</div>
